@@ -1,14 +1,15 @@
 import React from 'react';
-import { Search, Bell, HelpCircle } from 'lucide-react';
+import { Search, Bell, HelpCircle, Menu } from 'lucide-react';
 import { ActiveTab } from '../App';
 
 interface HeaderProps {
   activeTab: ActiveTab;
   searchTerm: string;
   onSearchChange: (val: string) => void;
+  onMobileMenuToggle: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ activeTab, searchTerm, onSearchChange }) => {
+export const Header: React.FC<HeaderProps> = ({ activeTab, searchTerm, onSearchChange, onMobileMenuToggle }) => {
   const getPageTitle = (tab: ActiveTab) => {
     switch (tab) {
       case 'dashboard': return '대시보드';
@@ -22,18 +23,26 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, searchTerm, onSearchC
   };
 
   return (
-    <header className="h-16 bg-white border-b border-slate-200 px-8 flex items-center justify-between sticky top-0 z-30 select-none shadow-xs">
+    <header className="h-16 bg-white border-b border-slate-200 px-4 sm:px-8 flex items-center justify-between sticky top-0 z-30 select-none shadow-xs">
       {/* Left Title */}
       <div className="flex items-center space-x-4">
+        <button
+          type="button"
+          onClick={onMobileMenuToggle}
+          className="lg:hidden p-2 rounded-xl hover:bg-slate-100 transition-colors"
+          aria-label="메뉴 열기"
+        >
+          <Menu className="w-5 h-5 text-slate-600" />
+        </button>
         <h2 className="text-lg font-bold text-blue-600 tracking-tight">
           {getPageTitle(activeTab)}
         </h2>
       </div>
 
       {/* Right Controls (Search & Icons) */}
-      <div className="flex items-center space-x-6">
+      <div className="flex-1 flex items-center justify-end space-x-4">
         {/* Search Bar */}
-        <div className="relative w-64 sm:w-80">
+        <div className="relative w-full max-w-xs sm:w-80">
           <Search className="absolute left-3.5 top-2.5 w-4 h-4 text-slate-400" />
           <input
             type="text"
@@ -45,7 +54,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, searchTerm, onSearchC
         </div>
 
         {/* Action Icons */}
-        <div className="flex items-center space-x-4 text-slate-600">
+        <div className="hidden md:flex items-center space-x-4 text-slate-600">
           <button className="p-2 hover:bg-slate-100 rounded-full transition-colors relative" title="알림">
             <Bell className="w-5 h-5" />
             <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
