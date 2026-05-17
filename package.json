@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://LikeLionHGU.github.io/guardian",
+  "homepage": "https://likelionhgu.github.io/guardian",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
