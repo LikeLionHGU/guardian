@@ -42,11 +42,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, hasLa
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id as ActiveTab)}
-                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
-                    isActive
+                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${isActive
                       ? 'bg-blue-50/90 text-blue-600 font-bold border border-blue-100 shadow-xs'
                       : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
-                  }`}
+                    }`}
                 >
                   <Icon className={`w-5 h-5 ${isActive ? 'text-blue-600' : 'text-slate-400'}`} />
                   <span>{item.label}</span>
@@ -61,12 +60,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, hasLa
           <div className="flex items-center space-x-3 p-2 rounded-xl">
             <img
               src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150"
-              alt="김지인 선생님"
+              alt="김지현 선생님"
               className="w-10 h-10 rounded-full object-cover border border-slate-200 shadow-xs"
             />
             <div className="overflow-hidden">
-              <h4 className="text-sm font-bold text-slate-900 truncate">김지인 선생님</h4>
-              <p className="text-xs font-semibold text-slate-400 truncate">서초초등학1</p>
+              <h4 className="text-sm font-bold text-slate-900 truncate">김지현 선생님</h4>
+              <p className="text-xs font-semibold text-slate-400 truncate">서초초등학교</p>
             </div>
           </div>
         </div>
@@ -104,11 +103,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, hasLa
                         setActiveTab(item.id as ActiveTab);
                         onMobileClose();
                       }}
-                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
-                        isActive
+                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${isActive
                           ? 'bg-blue-50/90 text-blue-600 font-bold border border-blue-100 shadow-xs'
                           : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
-                      }`}
+                        }`}
                     >
                       <Icon className={`w-5 h-5 ${isActive ? 'text-blue-600' : 'text-slate-400'}`} />
                       <span>{item.label}</span>
@@ -122,12 +120,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, hasLa
               <div className="flex items-center space-x-3 p-2 rounded-xl">
                 <img
                   src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150"
-                  alt="김지인 선생님"
+                  alt="김지현 선생님"
                   className="w-10 h-10 rounded-full object-cover border border-slate-200 shadow-xs"
                 />
                 <div className="overflow-hidden">
-                  <h4 className="text-sm font-bold text-slate-900 truncate">김지인 선생님</h4>
-                  <p className="text-xs font-semibold text-slate-400 truncate">서초초등학1</p>
+                  <h4 className="text-sm font-bold text-slate-900 truncate">김지현 선생님</h4>
+                  <p className="text-xs font-semibold text-slate-400 truncate">서초초등학교</p>
                 </div>
               </div>
             </div>
