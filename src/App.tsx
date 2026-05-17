@@ -17,6 +17,7 @@ export const App: React.FC = () => {
   const [history, setHistory] = useState<AnalysisResult[]>([]);
   const [latestResult, setLatestResult] = useState<AnalysisResult | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   // 로컬스토리지 초기화 및 로드
   useEffect(() => {
@@ -61,6 +62,8 @@ export const App: React.FC = () => {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         hasLatestResult={latestResult !== null}
+        isMobileOpen={isMobileSidebarOpen}
+        onMobileClose={() => setIsMobileSidebarOpen(false)}
       />
 
       {/* Main Container */}
@@ -70,10 +73,11 @@ export const App: React.FC = () => {
           activeTab={activeTab}
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
+          onMobileMenuToggle={() => setIsMobileSidebarOpen(true)}
         />
 
         {/* Content Area */}
-        <main className="flex-1 p-8 overflow-y-auto">
+        <main className="flex-1 p-4 sm:p-8 overflow-y-auto">
           {activeTab === 'dashboard' && (
             <Dashboard
               history={searchedHistory}
